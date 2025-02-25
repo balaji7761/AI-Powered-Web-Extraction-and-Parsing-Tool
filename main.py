@@ -7,7 +7,6 @@ from scrape import (
 )
 from parse import parse_with_ollama
 
-# Custom CSS for styling
 st.markdown(
     """
     <style>
@@ -41,7 +40,7 @@ st.markdown(
 
 st.markdown('<div class="title-container">🌍 AI Web Scraper</div>', unsafe_allow_html=True)
 
-# --- CONTAINER 1: SCRAPING SECTION ---
+
 with st.container():
     st.markdown("### 🔍 Scrape a Website")
     url = st.text_input("Enter the URL", key="url_input")
@@ -57,14 +56,14 @@ with st.container():
         else:
             st.error("⚠️ Please enter a valid URL.")
 
-# --- CONTAINER 2: DISPLAY SCRAPED CONTENT ---
+
 if "dom_content" in st.session_state:
     with st.container():
         st.markdown("### 📜 Scraped DOM Content")
         with st.expander("View DOM Content"):
             st.text_area("DOM Content", st.session_state.dom_content, height=250)
 
-# --- CONTAINER 3: PARSING SECTION ---
+
 if "dom_content" in st.session_state:
     with st.container():
         st.markdown("### 🛠️ Parse Content with AI")
